@@ -23,7 +23,6 @@ function fetchApi(url, json, method){
 async function addTokens() {
     const add_tokens = 500;
     const myToken = localStorage.token.split('JWT ')[1];
-    console.log(await getName(myToken))
     
     const response = await fetch('https://api.blooket.com/api/users/add-rewards', {
         method: "PUT",
