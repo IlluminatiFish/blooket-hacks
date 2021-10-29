@@ -1,17 +1,14 @@
 async function getName(authToken) {
     const response = await fetch('https://api.blooket.com/api/users/verify-token?token=JWT+' + authToken);
     const data = await response.json();
-    if(data!=null){
-        console.log(data)
-    }
-    
     return data.name
 };
 
 async function addTokens() {
     const add_tokens = 500;
     const myToken = localStorage.token.split('JWT ')[1];
-
+    console.log(await getName(myToken))
+    
     const response = await fetch('https://api.blooket.com/api/users/add-rewards', {
         method: "PUT",
         headers: {
